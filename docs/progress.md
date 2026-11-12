@@ -8,12 +8,12 @@ Agent: baca file ini PERTAMA. Kerjakan hanya milestone aktif.
 | 0-1 | Requirement dan perancangan | Selesai (disetujui) |
 | 2 | Stack, arsitektur, stored procedure | Selesai (disetujui) |
 | 3 | Setup folder, git, database, aset | Selesai |
-| 4 | Konteks agent dan konfigurasi | Berjalan (4.1, 4.2, 4.3 dibuat; 4.4 dan 4.5 menyusul) |
-| 5 | Rencana milestone | Belum |
-| 6 | Penjelasan akhir dan persiapan tanya jawab | Belum |
+| 4 | Konteks agent dan konfigurasi | Selesai |
+| 5 | Rencana milestone (M01 s.d. selesai) | Selesai (disetujui) |
+| 6 | Penjelasan akhir dan persiapan tanya jawab | Berjalan (M01 selesai) |
 
 ## Milestone aktif
-Belum ada (menunggu Tahap 5).
+M01 (Setup Database, Auth/Login, & Layout Base AdminLTE) — Selesai. Menunggu persetujuan untuk masuk ke M02.
 
 ## Keputusan terbuka
 Tidak ada.
