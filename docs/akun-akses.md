@@ -6,3 +6,5 @@ Berikut adalah akun uji coba yang dibuat oleh seeder untuk keperluan pengembanga
 |---|---|---|
 | Admin | `admin` | `password` |
 | Operator | `operator` | `password` |
+
+

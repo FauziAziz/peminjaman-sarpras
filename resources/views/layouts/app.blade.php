@@ -117,7 +117,7 @@
 
                         <li class="nav-header">LAPORAN</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('riwayat.index') }}" class="nav-link {{ request()->routeIs('riwayat.*') ? 'active' : '' }}">
                                 <i class="nav-icon bi bi-file-earmark-text"></i>
                                 <p>Riwayat & Export</p>
                             </a>

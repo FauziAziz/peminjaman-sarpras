@@ -10,10 +10,10 @@ Agent: baca file ini PERTAMA. Kerjakan hanya milestone aktif.
 | 3 | Setup folder, git, database, aset | Selesai |
 | 4 | Konteks agent dan konfigurasi | Selesai |
 | 5 | Rencana milestone (M01 s.d. selesai) | Selesai (disetujui) |
-| 6 | Penjelasan akhir dan persiapan tanya jawab | Berjalan (M01, M02, & M03 selesai) |
+| 6 | Penjelasan akhir dan persiapan tanya jawab | Selesai (disetujui) |
 
 ## Milestone aktif
-M03 (Transaksi Peminjaman & Pengembalian) — Selesai. Menunggu persetujuan untuk masuk ke M04.
+Semua milestone (M01 s.d. M04) telah selesai diimplementasikan.
 
 ## Keputusan terbuka
 Tidak ada.
@@ -21,3 +21,4 @@ Tidak ada.
 ## Catatan
 - Proyek lama `inventaris-skull` hanya acuan, jangan diubah.
 - Penjelasan tiap milestone ditulis di `docs/penjelasan/` memakai `_template.md`.
+- Panduan final dan persiapan ujian tersedia di `docs/panduan-ujian.md`.

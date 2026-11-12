@@ -50,7 +50,8 @@ Route::middleware('auth')->group(function () {
         Route::post('peminjam', [PeminjamController::class, 'store'])->name('peminjam.store');
     });
 
-    // Peminjam & Riwayat bisa diakses admin & operator
+    // Peminjam index & Riwayat (bisa diakses admin & operator)
     Route::get('peminjam', [PeminjamController::class, 'index'])->name('peminjam.index');
     Route::get('riwayat', [RiwayatController::class, 'index'])->name('riwayat.index');
+    Route::get('riwayat/export', [RiwayatController::class, 'export'])->name('riwayat.export');
 });

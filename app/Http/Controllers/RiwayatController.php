@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\RiwayatExport;
 use App\Models\Kategori;
 use App\Services\RiwayatService;
+use App\Exports\RiwayatExport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -19,38 +19,48 @@ class RiwayatController extends Controller
 
     public function index(Request $request)
     {
-        // Default tanggal: awal bulan ini sampai hari ini
         $dari = $request->input('dari', date('Y-m-01'));
         $sampai = $request->input('sampai', date('Y-m-d'));
         $status = $request->input('status', 'semua');
         $peminjam = $request->input('peminjam');
         $idKategori = $request->input('id_kategori');
 
-        $kategori = Kategori::all();
+        $kategoriList = Kategori::orderBy('nama_kategori')->get();
         $riwayat = [];
-        $error = null;
+        $errorMessage = null;
 
         try {
             $riwayat = $this->service->ambilRiwayat($dari, $sampai, $status, $peminjam, $idKategori);
         } catch (\Exception $e) {
-            $error = $e->getMessage();
+            $msg = $e->getMessage();
+            if (str_contains($msg, 'SQLSTATE[45000]')) {
+                $parts = explode(':', $msg);
+                $msg = trim(end($parts));
+            }
+            $errorMessage = $msg;
         }
 
-        if ($request->has('export')) {
-            $format = $request->input('export');
-            $filename = "riwayat-peminjaman_{$dari}_sd_{$sampai}";
+        return view('riwayat.index', compact('riwayat', 'kategoriList', 'dari', 'sampai', 'status', 'peminjam', 'idKategori', 'errorMessage'));
+    }
 
-            if ($format === 'csv') {
-                return Excel::download(new RiwayatExport($riwayat), "{$filename}.csv", \Maatwebsite\Excel\Excel::CSV, [
-                    'Content-Type' => 'text/csv; charset=UTF-8',
-                ]);
-            }
+    public function export(Request $request)
+    {
+        $dari = $request->input('dari', date('Y-m-01'));
+        $sampai = $request->input('sampai', date('Y-m-d'));
+        $status = $request->input('status', 'semua');
+        $peminjam = $request->input('peminjam');
+        $idKategori = $request->input('id_kategori');
+        $format = $request->input('format', 'xlsx');
 
-            if ($format === 'xlsx') {
-                return Excel::download(new RiwayatExport($riwayat), "{$filename}.xlsx");
-            }
+        try {
+            $data = $this->service->ambilRiwayat($dari, $sampai, $status, $peminjam, $idKategori);
+            $filename = "riwayat-peminjaman_{$dari}_sd_{$sampai}." . ($format === 'csv' ? 'csv' : 'xlsx');
+            
+            $writerType = $format === 'csv' ? \Maatwebsite\Excel\Excel::CSV : \Maatwebsite\Excel\Excel::XLSX;
+
+            return Excel::download(new RiwayatExport($data), $filename, $writerType);
+        } catch (\Exception $e) {
+            return back()->with('error', 'Gagal melakukan export data: ' . $e->getMessage());
         }
-
-        return view('riwayat.index', compact('riwayat', 'kategori', 'dari', 'sampai', 'status', 'peminjam', 'idKategori', 'error'));
     }
 }

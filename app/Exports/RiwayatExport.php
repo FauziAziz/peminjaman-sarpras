@@ -2,11 +2,11 @@
 
 namespace App\Exports;
 
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromArray;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 
-class RiwayatExport implements FromCollection, WithHeadings, WithMapping
+class RiwayatExport implements FromArray, WithHeadings, WithMapping
 {
     protected array $data;
 
@@ -15,35 +15,37 @@ class RiwayatExport implements FromCollection, WithHeadings, WithMapping
         $this->data = $data;
     }
 
-    public function collection()
+    public function array(): array
     {
-        return collect($this->data);
+        return $this->data;
     }
 
     public function headings(): array
     {
         return [
+            'ID Peminjaman',
             'Tanggal Pinjam',
             'Peminjam',
             'Jabatan',
-            'Barang',
+            'Nama Barang',
             'Jumlah',
             'Status',
             'Tanggal Kembali',
-            'Petugas Pencatat',
+            'Petugas'
         ];
     }
 
     public function map($row): array
     {
         return [
+            $row->id_peminjaman,
             $row->tanggal_pinjam,
             $row->nama_peminjam,
             $row->jabatan,
             $row->nama_barang,
             $row->jumlah,
-            ucfirst($row->status_peminjaman),
-            $row->tanggal_kembali ?? '-',
+            $row->status_peminjaman,
+            $row->tanggal_kembali,
             $row->nama_petugas,
         ];
     }
