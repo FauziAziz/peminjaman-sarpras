@@ -62,31 +62,31 @@
                         @if(Auth::user()->isAdmin())
                             <li class="nav-header">DATA INDUK (ADMIN)</li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('petugas.index') }}" class="nav-link {{ request()->routeIs('petugas.*') ? 'active' : '' }}">
                                     <i class="nav-icon bi bi-people"></i>
                                     <p>Petugas</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('kategori.index') }}" class="nav-link {{ request()->routeIs('kategori.*') ? 'active' : '' }}">
                                     <i class="nav-icon bi bi-tags"></i>
                                     <p>Kategori</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('ruang.index') }}" class="nav-link {{ request()->routeIs('ruang.*') ? 'active' : '' }}">
                                     <i class="nav-icon bi bi-door-open"></i>
                                     <p>Ruang</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('inventaris.index') }}" class="nav-link {{ request()->routeIs('inventaris.*') ? 'active' : '' }}">
                                     <i class="nav-icon bi bi-box-seam"></i>
                                     <p>Inventaris</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('peminjam.index') }}" class="nav-link {{ request()->routeIs('peminjam.*') ? 'active' : '' }}">
                                     <i class="nav-icon bi bi-person-badge"></i>
                                     <p>Peminjam</p>
                                 </a>
@@ -96,19 +96,19 @@
                         @if(Auth::user()->isOperator())
                             <li class="nav-header">TRANSAKSI & DATA</li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('peminjam.index') }}" class="nav-link {{ request()->routeIs('peminjam.*') ? 'active' : '' }}">
                                     <i class="nav-icon bi bi-person-badge"></i>
                                     <p>Peminjam</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('peminjaman.create') }}" class="nav-link {{ request()->routeIs('peminjaman.*') ? 'active' : '' }}">
                                     <i class="nav-icon bi bi-plus-square"></i>
                                     <p>Peminjaman Baru</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('pengembalian.index') }}" class="nav-link {{ request()->routeIs('pengembalian.*') ? 'active' : '' }}">
                                     <i class="nav-icon bi bi-arrow-return-left"></i>
                                     <p>Pengembalian</p>
                                 </a>

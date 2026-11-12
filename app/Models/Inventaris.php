@@ -22,6 +22,12 @@ class Inventaris extends Model
         'id_petugas',
     ];
 
+    // Tanggal dibaca sebagai objek tanggal agar bisa diformat, misalnya ->format('d-m-Y').
+    protected function casts(): array
+    {
+        return ['tanggal_register' => 'date'];
+    }
+
     public function kategori()
     {
         return $this->belongsTo(Kategori::class, 'id_kategori', 'id_kategori');

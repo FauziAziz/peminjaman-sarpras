@@ -10,10 +10,10 @@ Agent: baca file ini PERTAMA. Kerjakan hanya milestone aktif.
 | 3 | Setup folder, git, database, aset | Selesai |
 | 4 | Konteks agent dan konfigurasi | Selesai |
 | 5 | Rencana milestone (M01 s.d. selesai) | Selesai (disetujui) |
-| 6 | Penjelasan akhir dan persiapan tanya jawab | Berjalan (M01 selesai) |
+| 6 | Penjelasan akhir dan persiapan tanya jawab | Berjalan (M01, M02, & M03 selesai) |
 
 ## Milestone aktif
-M01 (Setup Database, Auth/Login, & Layout Base AdminLTE) — Selesai. Menunggu persetujuan untuk masuk ke M02.
+M03 (Transaksi Peminjaman & Pengembalian) — Selesai. Menunggu persetujuan untuk masuk ke M04.
 
 ## Keputusan terbuka
 Tidak ada.

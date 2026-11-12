@@ -18,6 +18,15 @@ class Peminjaman extends Model
         'status_peminjaman',
     ];
 
+    // Tanggal dibaca sebagai objek tanggal agar bisa diformat, misalnya ->format('d-m-Y').
+    protected function casts(): array
+    {
+        return [
+            'tanggal_pinjam' => 'date',
+            'tanggal_kembali' => 'date',
+        ];
+    }
+
     public function peminjam()
     {
         return $this->belongsTo(Peminjam::class, 'id_peminjam', 'id_peminjam');

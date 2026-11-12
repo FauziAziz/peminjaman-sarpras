@@ -43,7 +43,7 @@ return new class extends Migration
             $table->string('nama');
             $table->foreignId('id_kategori')->constrained('kategori', 'id_kategori')->restrictOnDelete();
             $table->foreignId('id_ruang')->nullable()->constrained('ruang', 'id_ruang')->restrictOnDelete();
-            $table->integer('jumlah')->default(0);
+            $table->unsignedInteger('jumlah')->default(0); // unsigned: stok tidak boleh negatif
             $table->string('kondisi')->default('baik');
             $table->text('keterangan')->nullable();
             $table->date('tanggal_register');
@@ -72,7 +72,7 @@ return new class extends Migration
             $table->id('id_detail_pinjam');
             $table->foreignId('id_peminjaman')->constrained('peminjaman', 'id_peminjaman')->restrictOnDelete();
             $table->foreignId('id_inventaris')->constrained('inventaris', 'id_inventaris')->restrictOnDelete();
-            $table->integer('jumlah');
+            $table->unsignedInteger('jumlah');
             $table->unique(['id_peminjaman', 'id_inventaris']);
         });
     }

@@ -7,11 +7,19 @@ return new class extends Migration
 {
     public function up(): void
     {
+        // Bersihkan dulu objek lama. migrate:fresh hanya menghapus tabel dan view,
+        // BUKAN function/procedure, sehingga tanpa ini migration gagal saat diulang.
+        DB::unprepared('DROP FUNCTION IF EXISTS fn_stok_tersedia');
+        DB::unprepared('DROP PROCEDURE IF EXISTS sp_buat_peminjaman');
+        DB::unprepared('DROP PROCEDURE IF EXISTS sp_tambah_detail_pinjam');
+        DB::unprepared('DROP PROCEDURE IF EXISTS sp_kembalikan_peminjaman');
+        DB::unprepared('DROP PROCEDURE IF EXISTS sp_riwayat_peminjaman');
+
         // Function fn_stok_tersedia
+        // READS SQL DATA saja (tanpa DETERMINISTIC): hasilnya berubah mengikuti isi tabel.
         DB::unprepared("
             CREATE FUNCTION fn_stok_tersedia(p_id_inventaris INT)
             RETURNS INT
-            DETERMINISTIC
             READS SQL DATA
             BEGIN
                 DECLARE v_total_pinjam INT DEFAULT 0;
@@ -30,7 +38,7 @@ return new class extends Migration
 
         // View v_stok_inventaris
         DB::unprepared("
-            CREATE VIEW v_stok_inventaris AS
+            CREATE OR REPLACE VIEW v_stok_inventaris AS
             SELECT 
                 i.id_inventaris,
                 i.kode_inventaris,
@@ -69,6 +77,7 @@ return new class extends Migration
         ");
 
         // Procedure sp_tambah_detail_pinjam
+        // Catatan: FOR UPDATE hanya mengunci jika dipanggil di dalam DB::transaction() (dari Service).
         DB::unprepared("
             CREATE PROCEDURE sp_tambah_detail_pinjam(
                 IN p_id_peminjaman INT,

@@ -24,6 +24,12 @@ class Petugas extends Authenticatable
         'remember_token',
     ];
 
+    // Password otomatis di-hash saat disimpan lewat model (dipakai di CRUD petugas).
+    protected function casts(): array
+    {
+        return ['password' => 'hashed'];
+    }
+
     public function level()
     {
         return $this->belongsTo(Level::class, 'id_level', 'id_level');
