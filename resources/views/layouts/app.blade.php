@@ -17,10 +17,10 @@
             <div class="container-fluid">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button" aria-label="Buka atau tutup sidebar"><i class="bi bi-list" aria-hidden="true"></i></a>
+                        <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button" aria-label="Buka atau tutup menu navigasi"><i class="bi bi-list fs-4" aria-hidden="true"></i></a>
                     </li>
                     <li class="nav-item d-none d-md-block">
-                        <span class="nav-link fw-semibold">Pencatatan Peminjaman Sarana dan Prasarana</span>
+                        <span class="nav-link fw-semibold">Pencatatan Peminjaman Sarana dan Prasarana SMK Bakti Nusantara 666</span>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
@@ -45,7 +45,7 @@
         <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
             <div class="sidebar-brand">
                 <a href="{{ route('dashboard') }}" class="brand-link text-decoration-none" aria-label="Peminjaman Sarpras">
-                    <i class="bi bi-box-seam text-primary me-2 fs-5" aria-hidden="true"></i>
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo" width="24" height="24" class="me-2" style="object-fit: contain;">
                     <span class="brand-text fw-bold">Peminjaman Sarpras</span>
                 </a>
             </div>

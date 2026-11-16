@@ -167,3 +167,16 @@ Status selalu memakai label teks; warna hanya pendukung.
 | Tanggal | Perubahan |
 |---|---|
 | 2026-11-16 | Draf awal: konteks, prinsip, palet dan sidebar biru, pola komponen, aksesibilitas |
+
+5.2 Tampilan HP (lebar di bawah 768px) [USULAN]:
+### Tampilan HP (lebar di bawah 768px)
+- Daftar yang punya aksi (Pengembalian, Riwayat) ditampilkan sebagai kartu bertumpuk, satu kartu per baris: nama tebal, detail kecil, badge status, dan tombol aksi (misalnya "Kembalikan") selalu terlihat tanpa geser horizontal.
+- Tabel data induk boleh tetap berbentuk tabel, tetapi dibungkus table-responsive, kolom "No" disembunyikan, dan padding kartu dikurangi.
+- Toolbar (pencarian dan tombol tambah) ditumpuk: pencarian selebar layar, tombol di bawahnya selebar layar.
+- Baris barang pada form peminjaman menjadi kartu mini (pilih barang penuh lebar, jumlah, tombol hapus), bukan tabel.
+- Tombol aksi utama selebar layar dengan ukuran huruf seragam. Aksi sekunder (misalnya "Tambah Barang") bergaya outline `utama`.
+- Tidak ada elemen yang melebihi lebar kartu. Tidak boleh ada scroll horizontal pada halaman, kecuali di dalam kontainer tabel yang sengaja dibuat responsif.
+- Garis tabel memakai token garis; hanya batas input yang memakai batas-input.
+- Target sentuh minimal 44px untuk tombol dan ikon yang bisa diketuk.
+
+[textlink](http://peminjaman-sarpras.test/dashboard)
