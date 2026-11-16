@@ -5,7 +5,7 @@
 
 @section('content')
 @component('components.tabel-otomatis')
-    @slot('slot')
+    @slot('tombolAksi')
         <a href="{{ route('peminjam.create') }}" class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i> Tambah Peminjam</a>
     @endslot
 

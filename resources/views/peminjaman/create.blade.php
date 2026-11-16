@@ -5,6 +5,11 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('vendor/tom-select/tom-select.bootstrap5.min.css') }}">
+<style>
+    .table-responsive {
+        overflow: visible !important;
+    }
+</style>
 @endpush
 
 @section('content')
@@ -111,7 +116,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const selectPeminjam = new TomSelect('#id_peminjam', {
         create: false,
-        sortField: {field: "text", direction: "asc"}
+        sortField: {field: "text", direction: "asc"},
+        dropdownParent: 'body'
     });
 
     selectPeminjam.on('change', function(value) {
@@ -151,7 +157,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Inisialisasi TomSelect untuk barang baru
         new TomSelect(tr.querySelector('.select-barang'), {
             create: false,
-            sortField: {field: "text", direction: "asc"}
+            sortField: {field: "text", direction: "asc"},
+            dropdownParent: 'body'
         });
 
         barisIndex++;

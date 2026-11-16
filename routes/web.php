@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 
     // Admin Data Induk
     Route::middleware('level:admin')->group(function () {
-        Route::resource('petugas', PetugasController::class)->except(['show']);
+        Route::resource('petugas', PetugasController::class)->parameters(['petugas' => 'petugas'])->except(['show']);
         Route::resource('kategori', KategoriController::class)->except(['show']);
         Route::resource('ruang', RuangController::class)->except(['show']);
         Route::resource('inventaris', InventarisController::class)->except(['show']);

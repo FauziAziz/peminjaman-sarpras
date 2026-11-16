@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login — Peminjaman Sarpras</title>
-    <link rel="stylesheet" href="{{ asset('vendor/bootstrap/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/adminlte.min.css') }}">
 </head>
@@ -12,8 +11,8 @@
     <div class="login-box w-100" style="max-width: 400px;">
         <div class="card card-outline card-primary shadow-sm">
             <div class="card-header text-center">
-                <a href="/" class="link-dark text-decoration-none fs-4 fw-bold">
-                    <i class="bi bi-box-seam text-primary me-2"></i>Peminjaman<strong>Sarpras</strong>
+                <a href="/" class="link-dark text-decoration-none fs-4 fw-bold" aria-label="Beranda Peminjaman Sarpras">
+                    <i class="bi bi-box-seam text-primary me-2" aria-hidden="true"></i>Peminjaman<strong>Sarpras</strong>
                 </a>
             </div>
             <div class="card-body login-card-body rounded-bottom">

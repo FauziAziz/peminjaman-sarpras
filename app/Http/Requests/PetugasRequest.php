@@ -14,7 +14,8 @@ class PetugasRequest extends FormRequest
 
     public function rules(): array
     {
-        $petugasId = $this->route('petugas')?->id_petugas ?? $this->route('petuga');
+        $petugas = $this->route('petugas');
+        $petugasId = is_object($petugas) ? $petugas->id_petugas : $petugas;
 
         return [
             'username' => ['required', 'string', 'max:255', Rule::unique('petugas', 'username')->ignore($petugasId, 'id_petugas')],
