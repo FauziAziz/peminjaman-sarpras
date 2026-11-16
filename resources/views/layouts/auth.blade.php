@@ -6,6 +6,7 @@
     <title>Login — Peminjaman Sarpras</title>
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 <body class="login-page bg-body-secondary d-flex flex-column justify-content-center align-items-center vh-100">
     <div class="login-box w-100" style="max-width: 400px;">

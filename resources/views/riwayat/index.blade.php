@@ -90,7 +90,7 @@
                                 <td>{{ $item->nama_barang }}</td>
                                 <td class="text-center">{{ $item->jumlah }}</td>
                                 <td class="text-center">
-                                    <span class="badge bg-{{ $item->status_peminjaman === 'kembali' ? 'success' : 'primary' }}">{{ ucfirst($item->status_peminjaman) }}</span>
+                                    <span class="badge {{ $item->status_peminjaman === 'kembali' ? 'badge-status-kembali' : 'badge-status-dipinjam' }}">{{ $item->status_peminjaman === 'kembali' ? 'Dikembalikan' : 'Dipinjam' }}</span>
                                 </td>
                                 <td>{{ $item->tanggal_kembali ? date('d-m-Y', strtotime($item->tanggal_kembali)) : '-' }}</td>
                                 <td>{{ $item->nama_petugas }}</td>

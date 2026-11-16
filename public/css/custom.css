@@ -1,0 +1,94 @@
+:root {
+    --bs-body-bg: #EBE7D9;
+    --bs-body-bg-rgb: 235, 231, 217;
+    --bs-body-color: #1E2A36;
+    --bs-body-color-rgb: 30, 42, 54;
+    --bs-secondary-color: #4A5560;
+    --bs-secondary-bg: #EBE7D9;
+    --bs-primary: #3876B4;
+    --bs-primary-rgb: 56, 118, 180;
+    --bs-link-color: #2B5E91;
+    --bs-link-hover-color: #244F7A;
+    --bs-success: #3F7D3A;
+    --bs-warning: #F2C14E;
+    --bs-danger: #B3382C;
+    --bs-border-color: #737C87;
+    --bs-border-color-translucent: #D6D1BF;
+    --bs-table-hover-bg: #E3F4FD;
+    --bs-table-hover-color: #1E2A36;
+    --bs-focus-ring-color: rgba(56, 118, 180, 0.5);
+}
+
+body {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+.card, .table, .modal-content, .dropdown-menu {
+    background-color: #FEFEFE;
+    color: var(--bs-body-color);
+}
+
+.form-control, .form-select {
+    border-color: #737C87;
+    background-color: #FEFEFE;
+    color: var(--bs-body-color);
+}
+
+.form-control:focus, .form-select:focus, .btn:focus, .nav-link:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 2px var(--bs-primary);
+}
+
+.btn-primary {
+    background-color: #3876B4;
+    border-color: #3876B4;
+    color: #FEFEFE;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: #244F7A !important;
+    border-color: #244F7A !important;
+    color: #FEFEFE !important;
+}
+
+/* Sidebar Customization */
+.app-sidebar.bg-body-secondary, [data-bs-theme="dark"] .app-sidebar {
+    background-color: #2B5E91 !important;
+    --lte-sidebar-color: #FEFEFE;
+    --lte-sidebar-hover-bg: #244F7A;
+    --lte-sidebar-hover-color: #FEFEFE;
+    --lte-sidebar-menu-active-bg: #1F4469;
+    --lte-sidebar-menu-active-color: #FEFEFE;
+    --lte-sidebar-header-color: #D5E2F0;
+    --lte-sidebar-submenu-color: #FEFEFE;
+    --lte-sidebar-submenu-hover-color: #FEFEFE;
+    --lte-sidebar-submenu-hover-bg: #244F7A;
+    --lte-sidebar-submenu-active-color: #FEFEFE;
+    --lte-sidebar-submenu-active-bg: #1F4469;
+}
+
+.app-sidebar .sidebar-menu .nav-item .nav-link.active {
+    border-left: 4px solid #4EC0F7;
+}
+
+/* Status Badges */
+.badge-status-dipinjam {
+    background-color: #4EC0F7;
+    color: #1E2A36;
+}
+
+.badge-status-kembali {
+    background-color: #B4C894;
+    color: #1E2A36;
+}
+
+.badge-status-terlambat {
+    background-color: #B3382C;
+    color: #FEFEFE;
+}
+
+.badge-status-menipis {
+    background-color: #F2C14E;
+    color: #1E2A36;
+}
