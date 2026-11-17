@@ -156,7 +156,7 @@
             </div>
         </main>
         <footer class="app-footer text-end px-4 py-2 small text-muted">
-            Peminjaman Sarpras Sekolah &bull; Laravel 13 + AdminLTE 4
+            Made with <3 by uzi &bull; Using Laravel 13 x AdminLTE 4 (Edisi malas ngoding)
         </footer>
     </div>
     <script src="{{ asset('vendor/bootstrap/bootstrap.bundle.min.js') }}"></script>
