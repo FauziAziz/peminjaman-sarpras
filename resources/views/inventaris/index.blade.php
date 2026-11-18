@@ -6,7 +6,21 @@
 @section('content')
 @component('components.tabel-otomatis')
     @slot('tombolAksi')
-        <a href="{{ route('inventaris.create') }}" class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i> Tambah Inventaris</a>
+        <div class="d-flex gap-2">
+            <select name="id_kategori" class="form-select form-select-sm filter-table" data-param="id_kategori">
+                <option value="">Semua Kategori</option>
+                @foreach(\App\Models\Kategori::all() as $k)
+                    <option value="{{ $k->id_kategori }}" {{ request('id_kategori') == $k->id_kategori ? 'selected' : '' }}>{{ $k->nama_kategori }}</option>
+                @endforeach
+            </select>
+            <select name="kondisi" class="form-select form-select-sm filter-table" data-param="kondisi">
+                <option value="">Semua Kondisi</option>
+                <option value="baik" {{ request('kondisi') == 'baik' ? 'selected' : '' }}>Baik</option>
+                <option value="rusak ringan" {{ request('kondisi') == 'rusak ringan' ? 'selected' : '' }}>Rusak Ringan</option>
+                <option value="rusak berat" {{ request('kondisi') == 'rusak berat' ? 'selected' : '' }}>Rusak Berat</option>
+            </select>
+            <a href="{{ route('inventaris.create') }}" class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i> Tambah</a>
+        </div>
     @endslot
 
     <table class="table table-bordered table-striped align-middle">

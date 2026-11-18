@@ -69,7 +69,16 @@ class PeminjamanController extends Controller
     public function kembalikan(Request $request, Peminjaman $peminjaman)
     {
         try {
-            $tanggalKembali = $request->input('tanggal_kembali', date('Y-m-d'));
+            $tanggalKembali = date('Y-m-d');
+            $kondisi = $request->input('kondisi', 'baik');
+
+            // Update kondisi inventaris terkait jika rusak
+            if ($kondisi !== 'baik') {
+                foreach ($peminjaman->detailPinjam as $detail) {
+                    $detail->inventaris->update(['kondisi' => $kondisi]);
+                }
+            }
+
             $this->service->kembalikanPeminjaman($peminjaman->id_peminjaman, $tanggalKembali);
 
             return redirect()->route('pengembalian.index')->with('success', 'Pengembalian barang berhasil dikonfirmasi.');

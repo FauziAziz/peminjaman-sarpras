@@ -14,9 +14,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 300);
     });
 
+    document.querySelectorAll('.filter-table').forEach(el => {
+        el.addEventListener('change', function () {
+            fetchTableData(searchInput.value);
+        });
+    });
+
     function fetchTableData(keyword) {
         const url = new URL(window.location.href);
         url.searchParams.set('search', keyword);
+        
+        document.querySelectorAll('.filter-table').forEach(el => {
+            url.searchParams.set(el.getAttribute('data-param'), el.value);
+        });
 
         fetch(url, {
             headers: {

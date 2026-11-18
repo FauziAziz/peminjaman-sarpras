@@ -21,16 +21,25 @@ class InventarisController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
+        $idKategori = $request->input('id_kategori');
+        $kondisi = $request->input('kondisi');
+
         $inventaris = Inventaris::with(['kategori', 'ruang', 'petugas'])
             ->when($search, function ($query, $search) {
                 $query->where('nama', 'like', "%{$search}%")
                       ->orWhere('kode_inventaris', 'like', "%{$search}%");
             })
+            ->when($idKategori, function ($query, $idKategori) {
+                $query->where('id_kategori', $idKategori);
+            })
+            ->when($kondisi, function ($query, $kondisi) {
+                $query->where('kondisi', $kondisi);
+            })
             ->orderBy('id_inventaris', 'desc')
             ->paginate(10)
             ->withQueryString();
 
-        return view('inventaris.index', compact('inventaris', 'search'));
+        return view('inventaris.index', compact('inventaris', 'search', 'idKategori', 'kondisi'));
     }
 
     public function create(Request $request)

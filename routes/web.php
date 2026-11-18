@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
         Route::get('peminjam/{peminjam}/edit', [PeminjamController::class, 'edit'])->name('peminjam.edit');
         Route::put('peminjam/{peminjam}', [PeminjamController::class, 'update'])->name('peminjam.update');
         Route::patch('peminjam/{peminjam}/toggle', [PeminjamController::class, 'toggleAktif'])->name('peminjam.toggle');
+        Route::delete('peminjam/{peminjam}', [PeminjamController::class, 'destroy'])->name('peminjam.destroy');
     });
 
     // Operator Peminjaman & Pengembalian

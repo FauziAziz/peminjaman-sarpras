@@ -81,4 +81,18 @@ class PeminjamController extends Controller
             return back()->with('error', $e->getMessage());
         }
     }
+
+    public function destroy(Peminjam $peminjam)
+    {
+        if (auth()->user()->isOperator()) {
+            abort(403, 'Operator tidak diizinkan menghapus peminjam.');
+        }
+
+        try {
+            $this->service->hapus($peminjam);
+            return redirect()->route('peminjam.index')->with('success', 'Data peminjam berhasil dihapus.');
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
 }

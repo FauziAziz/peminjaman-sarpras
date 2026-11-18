@@ -22,4 +22,13 @@ class PeminjamService
         $peminjam->aktif = !$peminjam->aktif;
         return $peminjam->save();
     }
+
+    public function hapus(Peminjam $peminjam): bool
+    {
+        if ($peminjam->peminjaman()->count() > 0) {
+            throw new \Exception('Peminjam tidak dapat dihapus karena sudah memiliki riwayat transaksi.');
+        }
+
+        return $peminjam->delete();
+    }
 }

@@ -160,6 +160,7 @@ return new class extends Migration
                     pm.nama_peminjam,
                     pm.jabatan,
                     i.nama AS nama_barang,
+                    i.kondisi,
                     dp.jumlah,
                     p.status_peminjaman,
                     p.tanggal_kembali,

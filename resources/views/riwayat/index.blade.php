@@ -75,6 +75,7 @@
                             <th>Tanggal Pinjam</th>
                             <th>Peminjam</th>
                             <th>Barang</th>
+                            <th>Kondisi</th>
                             <th class="text-center">Jumlah</th>
                             <th class="text-center">Status</th>
                             <th>Tanggal Kembali</th>
@@ -88,6 +89,7 @@
                                 <td>{{ date('d-m-Y', strtotime($item->tanggal_pinjam)) }}</td>
                                 <td>{{ $item->nama_peminjam }}<br><small class="text-muted">{{ $item->jabatan }}</small></td>
                                 <td>{{ $item->nama_barang }}</td>
+                                <td>{{ ucfirst($item->kondisi) }}</td>
                                 <td class="text-center">{{ $item->jumlah }}</td>
                                 <td class="text-center">
                                     <span class="badge {{ $item->status_peminjaman === 'kembali' ? 'badge-status-kembali' : 'badge-status-dipinjam' }}">{{ $item->status_peminjaman === 'kembali' ? 'Dikembalikan' : 'Dipinjam' }}</span>

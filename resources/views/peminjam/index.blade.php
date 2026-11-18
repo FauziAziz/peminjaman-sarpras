@@ -40,6 +40,11 @@
                                     <i class="bi bi-power"></i>
                                 </button>
                             </form>
+                            <form action="{{ route('peminjam.destroy', $item->id_peminjam) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus peminjam ini?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" title="Hapus"><i class="bi bi-trash"></i></button>
+                            </form>
                         </td>
                     @endif
                 </tr>
