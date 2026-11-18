@@ -9,7 +9,16 @@
       "*.env.*": "deny",
       "*.env.example": "allow"
     },
-    "edit": "ask",
+    "edit": {
+      "*": "ask",
+      "AGENTS.md": "deny",
+      "CLAUDE.md": "deny",
+      "opencode.json": "deny",
+      "docs/0*.md": "deny",
+      ".opencode/*": "deny",
+      ".env": "deny",
+      ".env.*": "deny"
+    },
     "bash": {
       "*": "ask",
       "git status*": "allow",

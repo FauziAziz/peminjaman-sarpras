@@ -6,6 +6,8 @@ Model Laravel mengatur `$table` dan `$primaryKey` secara eksplisit.
 
 > Tipe data di bawah adalah USULAN, dikonfirmasi saat milestone migration.
 
+remember_token, created_at, updated_at (bawaan Auth Laravel); satu-satunya tabel ber-timestamps.
+
 ## Tabel
 | Tabel | Kolom | Catatan |
 |---|---|---|

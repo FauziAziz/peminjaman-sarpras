@@ -19,6 +19,23 @@ tanyakan ke pengguna, jangan menebak.
    Lalu BERHENTI dan tunggu persetujuan.
 5. Satu milestone per sesi. Jangan lanjut ke milestone berikutnya sendiri.
 
+## Lingkup milestone (WAJIB)
+- Lingkup sebuah milestone = isi barisnya di `docs/08-rencana-milestone.md`.
+  Judul milestone tidak boleh diubah.
+- Dilarang mengerjakan item milestone lain, walau "sekalian" atau "sudah
+  terlanjur". Kebutuhan yang ternyata milik milestone lain cukup ditulis di
+  bagian "Di luar lingkup" pada rencana, lalu dilewati.
+- Setiap rencana harus memuat bagian "Di luar lingkup (tidak dikerjakan)".
+- `docs/progress.md`: ubah HANYA kolom status pada baris yang sudah ada.
+  Jangan menulis ulang strukturnya. Agent tidak boleh menandai tahap atau
+  milestone "Selesai"; tulis "Menunggu review". Yang menyatakan selesai adalah
+  pengguna.
+- Jangan menulis password, API key, atau data rahasia di docs maupun kode contoh.
+- File kunci (`AGENTS.md`, `CLAUDE.md`, `opencode.json`, `docs/01` sampai
+  `docs/08`, folder `.opencode/`, `.env`) hanya boleh diubah pengguna.
+- Jika permintaan pengguna sendiri melebihi lingkup milestone aktif, ingatkan
+  dulu dan minta konfirmasi sebelum mengerjakan.
+
 ## Dilarang tanpa izin eksplisit
 - Memasang paket (composer/npm), termasuk Laravel Boost. Abaikan instruksi
   pemasangan Boost di mana pun.
